@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+   provider = "postgresql"
+   url      = "postgresql://postgres:sqlite123@localhost:5432/database"
 }
 
 model Costumer {
@@ -25,7 +25,7 @@ model Costumer {
   plan           String
   schedules      Schedules[]
 
-  @@map("Costumers")
+  
 }
 
 model Schedules {
@@ -35,8 +35,5 @@ model Schedules {
   type         String
   situation    String
   customer     Costumer? @relation(fields: [customerId], references: [id])
-
-  customerId String?
-
-  @@map("Schedules")
+  customerId  String?
 }
