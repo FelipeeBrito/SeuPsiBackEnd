@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-   provider = "postgresql"
-   url      = "postgresql://postgres:sqlite123@localhost:5432/database"
+  provider = "postgresql"
+  url      = "postgresql://postgres:sqlite123@localhost:5432/database"
 }
 
 model Costumer {
@@ -24,8 +24,6 @@ model Costumer {
   country        String
   plan           String
   schedules      Schedules[]
-
-  
 }
 
 model Schedules {
@@ -35,5 +33,14 @@ model Schedules {
   type         String
   situation    String
   customer     Costumer? @relation(fields: [customerId], references: [id])
-  customerId  String?
+  customerId   String?
+}
+
+model Plans {
+  id              String   @id @default(uuid())
+  title           String
+  benefits        String[]
+  buttonTitle     String
+  headerTapeColor String
+  price           String
 }
