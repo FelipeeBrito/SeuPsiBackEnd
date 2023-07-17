@@ -44,3 +44,28 @@ model Plans {
   headerTapeColor String
   price           String
 }
+
+model Professional {
+  id String @id @default(uuid())
+  name String
+  profilePicture String
+  profession String
+  crp String
+  city String
+  state String
+  avaliation Float
+  language String
+  skills String[]
+  price Float
+  description String
+  socialMedias Socialmedia[]
+}
+
+model Socialmedia{
+  id String @id @default(uuid())
+  instagram String
+  facebook String
+  linkedIn String
+  professional Professional? @relation(fields: [professionalId],references: [id])
+  professionalId String?
+}
