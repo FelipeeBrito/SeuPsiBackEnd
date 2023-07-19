@@ -10,9 +10,9 @@ datasource db {
   url      = "postgresql://postgres:sqlite123@localhost:5432/database"
 }
 
-model Costumers {
+model Customers {
   id             String      @id @default(uuid())
-  Name           String
+  name           String
   socialName     String
   profilePicture String
   gender         String
@@ -32,7 +32,7 @@ model Schedules {
   professional String
   type         String
   situation    String
-  customers    Costumers? @relation(fields: [customerId], references: [id])
+  customers    Customers? @relation(fields: [customerId], references: [id])
   customerId   String?
 }
 
@@ -46,7 +46,7 @@ model Plans {
 }
 
 model Professionals {
-  id             String        @id @default(uuid())
+  id             String         @id @default(uuid())
   name           String
   profilePicture String
   jobTitle       String
