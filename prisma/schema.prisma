@@ -45,7 +45,7 @@ model Plans {
   price           String
 }
 
-model Professional {
+model Professionals {
   id             String        @id @default(uuid())
   name           String
   profilePicture String
@@ -66,6 +66,6 @@ model Socialmedia {
   instagram      String
   facebook       String
   linkedIn       String
-  professional   Professional? @relation(fields: [professionalId], references: [id])
+  professionals   Professionals? @relation(fields: [professionalId], references: [id])
   professionalId String?
 }
