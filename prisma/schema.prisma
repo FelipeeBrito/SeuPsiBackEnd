@@ -12,7 +12,7 @@ datasource db {
 
 model Costumers {
   id             String      @id @default(uuid())
-  Name       String
+  Name           String
   socialName     String
   profilePicture String
   gender         String
@@ -27,12 +27,12 @@ model Costumers {
 }
 
 model Schedules {
-  id           String    @id @default(uuid())
+  id           String     @id @default(uuid())
   date         String
   professional String
   type         String
   situation    String
-  customers     Costumers? @relation(fields: [customerId], references: [id])
+  customers    Costumers? @relation(fields: [customerId], references: [id])
   customerId   String?
 }
 
@@ -49,7 +49,7 @@ model Professionals {
   id             String        @id @default(uuid())
   name           String
   profilePicture String
-  profession     String
+  jobTitle       String
   crp            String
   city           String
   state          String
@@ -62,10 +62,10 @@ model Professionals {
 }
 
 model Socialmedia {
-  id             String        @id @default(uuid())
+  id             String         @id @default(uuid())
   instagram      String
   facebook       String
   linkedIn       String
-  professionals   Professionals? @relation(fields: [professionalId], references: [id])
+  professionals  Professionals? @relation(fields: [professionalId], references: [id])
   professionalId String?
 }
