@@ -58,10 +58,10 @@ model Professionals {
   skills         String[]
   price          Float
   description    String
-  socialMedias   Socialmedia[]
+  socialMedias   SocialMedias[]
 }
 
-model Socialmedia {
+model SocialMedias {
   id             String         @id @default(uuid())
   instagram      String
   facebook       String
