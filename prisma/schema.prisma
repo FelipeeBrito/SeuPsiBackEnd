@@ -10,9 +10,9 @@ datasource db {
   url      = "postgresql://postgres:sqlite123@localhost:5432/database"
 }
 
-model Costumer {
+model Costumers {
   id             String      @id @default(uuid())
-  userName       String
+  Name       String
   socialName     String
   profilePicture String
   gender         String
@@ -32,7 +32,7 @@ model Schedules {
   professional String
   type         String
   situation    String
-  customer     Costumer? @relation(fields: [customerId], references: [id])
+  customers     Costumers? @relation(fields: [customerId], references: [id])
   customerId   String?
 }
 
@@ -46,26 +46,26 @@ model Plans {
 }
 
 model Professional {
-  id String @id @default(uuid())
-  name String
+  id             String        @id @default(uuid())
+  name           String
   profilePicture String
-  profession String
-  crp String
-  city String
-  state String
-  avaliation Float
-  language String
-  skills String[]
-  price Float
-  description String
-  socialMedias Socialmedia[]
+  profession     String
+  crp            String
+  city           String
+  state          String
+  avaliation     Float
+  language       String
+  skills         String[]
+  price          Float
+  description    String
+  socialMedias   Socialmedia[]
 }
 
-model Socialmedia{
-  id String @id @default(uuid())
-  instagram String
-  facebook String
-  linkedIn String
-  professional Professional? @relation(fields: [professionalId],references: [id])
+model Socialmedia {
+  id             String        @id @default(uuid())
+  instagram      String
+  facebook       String
+  linkedIn       String
+  professional   Professional? @relation(fields: [professionalId], references: [id])
   professionalId String?
 }
