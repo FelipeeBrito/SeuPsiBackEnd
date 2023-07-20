@@ -11,9 +11,3 @@ app.listen({
     console.log("server running at http://localhost:3333")
 })
 
-app.get('/',()=>{
-    return{
-        status:"ok",
-        code: 200,
-    }
-})
