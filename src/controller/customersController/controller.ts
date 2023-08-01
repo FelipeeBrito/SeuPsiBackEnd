@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import fastify, { FastifyInstance } from "fastify";
+import { FastifyInstance } from "fastify";
 import { z } from "zod";
 import { prisma } from "../../lib/prisma";
 import { FastifyReply } from "fastify";
