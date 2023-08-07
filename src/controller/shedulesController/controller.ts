@@ -12,9 +12,7 @@ export async function sheduleRoute(app: FastifyInstance) {
       type: z.string(),
       situation: z.string(),
     });
-    const { date, professional, type, situation } = newSchedules.parse(
-      req.body
-    );
+    const { date, professional, type, situation } = newSchedules.parse(req.body);
     await prisma.schedules.create({
       data: {
         date,

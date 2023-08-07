@@ -1,16 +1,19 @@
 import fastify from "fastify";
 import cors from "@fastify/cors";
-import { appRoutes } from "./controller/customersController/controller";
+import { sheduleRoute } from "./controller/shedulesController/controller";
+import { customerRoute } from "./controller/customersController/controller";
 
 const app = fastify()
 
 
-app.register(appRoutes)
+
 app.register(cors, {
     origin: true
     
 })
 
+app.register(sheduleRoute)
+app.register(customerRoute)
 
 app.listen({
     port:3333,
@@ -19,4 +22,5 @@ app.listen({
 }).then(()=> {
     console.log("server running at http://localhost:3333")
 })
+
 
